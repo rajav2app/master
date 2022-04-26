@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.CreatePlayerFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:minWidth="400dp"
+            android:minHeight="50dp"
+            android:text="@string/txt_create_player"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibtn_close"
+            style="@style/myButtontheme"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/marigin_20dp">
+
+        <EditText
+            android:id="@+id/etPlayerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txt_player_name"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+
+
+            <RadioGroup
+                android:id="@+id/rg_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:textAlignment="gravity"
+                >
+
+                <RadioButton
+                    android:id="@+id/rb_c"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/black"
+                    android:backgroundTint="@color/player_state_bg"
+                    android:backgroundTintMode="add"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:minHeight="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="gravity"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="C"/>
+
+                <RadioButton
+                    android:id="@+id/rb_vc"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/black"
+                    android:backgroundTint="@color/player_state_bg"
+                    android:backgroundTintMode="add"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:minHeight="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="gravity"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="VC"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_CreatePlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/txt_create_player"
+            android:backgroundTint="@color/purple_500"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
