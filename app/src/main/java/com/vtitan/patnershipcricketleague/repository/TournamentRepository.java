@@ -84,7 +84,7 @@ public class TournamentRepository {
         // new insertTournamentTask(tournamentDao).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,tournament);
     }
 
-    public int teamCount(String tournamentID){
+    public LiveData<Integer> teamCount(String tournamentID){
         return mTeamDao.getTeamCount(tournamentID);
     }
 
@@ -92,6 +92,12 @@ public class TournamentRepository {
         return playersDao.insertPlayers(players);
     }
 
+    public int updatePlayerDetails(String playerName,int playerState,int playerid) {
+        return playersDao.updatePlayerDetails(playerName,playerState,playerid);
+    }
+    public int updateTeamDetails(String teamName,String teamLocation,int teamid) {
+        return mTeamDao.updateTeamDetails(teamName,teamLocation,teamid);
+    }
     public LiveData<Integer> playerCount(int teamID){
         return playersDao.getPlayersCount(teamID);
     }
@@ -124,6 +130,10 @@ public class TournamentRepository {
         return matchesDao.getMatches();
     }
 
+    public LiveData<List<Matches>> getTeamMatches(int teamId){
+        return matchesDao.getTeamMatches(teamId);
+    }
+
     public LiveData<Integer> getMatchesScheduleState(){
         return tournamentDao.getMatchScheduleState();
     }
@@ -134,7 +144,25 @@ public class TournamentRepository {
      return  mTeamDao.getTeamId(teamName);
     }
 
+    public LiveData<Integer> getPlayerState(int teamID){
+        return playersDao.getPlayerState(teamID);
+    }
 
+    public int updateMatchDetails(String venue,long date,int over,int toss,int bat,int matchNo) {
+        return matchesDao.updateMatchDetails(venue,date,over,toss,bat,matchNo);
+    }
+
+    public LiveData<Matches>getMatchDetails(int matchNo,int tournamentId){
+        return matchesDao.getMatchDetails(matchNo,tournamentId);
+    }
+
+    public String getTeamName(int teamId){
+        return mTeamDao.getTeamName(teamId);
+    }
+
+    public void updateMatchStatus(int status,int matchNo,int tournamentId){
+        matchesDao.updateMatchStatus(status,matchNo,tournamentId);
+    }
 
 
 }

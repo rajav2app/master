@@ -104,20 +104,19 @@
         android:padding="10dp"
         android:hint="@string/txt_venue"
         android:textColor="@color/black" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_sch_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Scheduled Date and Time"
-        android:layout_marginTop="10dp"
-        card_view:endIconDrawable="@drawable/ic_calendar">
+        app:endIconDrawable="@drawable/ic_calendar"
+        app:endIconMode="custom">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_sch_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:enabled="false"
             android:focusable="true"
             android:focusableInTouchMode="false"
             android:inputType="datetime"
@@ -125,7 +124,29 @@
             android:textSize="14sp"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
-    <EditText
+
+    <!-- <com.google.android.material.textfield.TextInputLayout
+         android:id="@+id/til_sch_time"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:hint="Scheduled Date and Time"
+         android:layout_marginTop="10dp"
+         app:endIconDrawable="@drawable/ic_calendar">
+
+         <com.google.android.material.textfield.TextInputEditText
+             android:id="@+id/edit_sch_time"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:clickable="true"
+             android:enabled="false"
+             android:focusable="true"
+             android:focusableInTouchMode="false"
+             android:inputType="datetime"
+             android:minHeight="50dp"
+             android:textSize="14sp"
+             android:textColor="@color/black" />
+     </com.google.android.material.textfield.TextInputLayout>
+ -->    <!--<EditText
         android:id="@+id/etOver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -133,17 +154,128 @@
         android:padding="10dp"
         android:hint="@string/txt_over"
         android:textColor="@color/black"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"/>-->
 
-    <EditText
-        android:id="@+id/etWickets"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:padding="10dp"
-        android:hint="@string/txt_wickets"
+        android:text="@string/txt_over"
         android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:layout_gravity="start"
+        android:gravity="start"
         android:layout_marginTop="10dp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_over"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/rb_over_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
+            android:backgroundTintMode="add"
+            android:text="2"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_over_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
+            android:backgroundTintMode="add"
+            android:text="3"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+        <RadioButton
+            android:id="@+id/rb_over_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
+            android:backgroundTintMode="add"
+            android:text="4"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+        <RadioButton
+            android:id="@+id/rb_over_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
+            android:backgroundTintMode="add"
+            android:text="5"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+
+
+        <RadioButton
+            android:id="@+id/rb_over_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
+            android:backgroundTintMode="add"
+            android:text="6"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+    </RadioGroup>
+
 
     <TextView
         android:layout_width="match_parent"
@@ -171,6 +303,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:background="@drawable/toss_won_bg"
+        android:backgroundTint="@color/player_state_bg"
         android:backgroundTintMode="add"
         android:button="@null"
         android:gravity="center"
@@ -189,6 +322,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:background="@drawable/toss_won_bg"
+        android:backgroundTint="@color/player_state_bg"
         android:backgroundTintMode="add"
         android:button="@null"
         android:gravity="center"
@@ -230,6 +364,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/toss_won_bg"
             android:backgroundTintMode="add"
+            android:backgroundTint="@color/player_state_bg"
             android:button="@null"
             android:gravity="center"
             android:text="Bat"
@@ -248,6 +383,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:background="@drawable/toss_won_bg"
+            android:backgroundTint="@color/player_state_bg"
             android:backgroundTintMode="add"
             android:button="@null"
             android:gravity="center"

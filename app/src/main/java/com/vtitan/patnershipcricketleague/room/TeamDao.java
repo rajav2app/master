@@ -19,13 +19,22 @@ public interface TeamDao {
     abstract LiveData<List<Teams>> getAllTeams(String tId);
 
     @Query("SELECT COUNT(team_name) FROM Teams WHERE t_ID =:tournamentID")
-    int getTeamCount(String tournamentID);
+    abstract LiveData<Integer> getTeamCount(String tournamentID);
 
     @Query("SELECT teamID,team_name,team_location FROM Teams WHERE teamID =:tId")
     abstract LiveData<Teams> getTeamDetails(int tId);
 
     @Query("SELECT teamID FROM Teams WHERE team_name =:teamName")
     abstract int getTeamId(String teamName);
+
+    @Query("UPDATE TEAMS SET team_name =:teamName,team_location =:teamLocation WHERE teamID =:teamId")
+    int updateTeamDetails(String teamName,String teamLocation,int teamId);
+
+    @Query("SELECT team_name FROM Teams WHERE teamID =:teamId")
+    String getTeamName(int teamId);
+
+
+
 
 
 }

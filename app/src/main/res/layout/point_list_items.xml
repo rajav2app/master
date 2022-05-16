@@ -10,8 +10,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_team"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:gravity="center"
             android:padding="5dp"
             android:src="@drawable/team_2"/>
@@ -23,8 +23,7 @@
             android:gravity="center"
             android:text="Chennai Super Kings"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
             android:layout_gravity="start"
             android:padding="5dp"/>
 
@@ -36,7 +35,7 @@
             android:gravity="center"
             android:text="2"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
@@ -48,7 +47,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
@@ -60,7 +59,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
@@ -71,7 +70,7 @@
             android:gravity="center"
             android:text="0"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
@@ -83,7 +82,7 @@
             android:gravity="center"
             android:text="2"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
@@ -95,7 +94,7 @@
             android:gravity="center"
             android:text="+0.23"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>

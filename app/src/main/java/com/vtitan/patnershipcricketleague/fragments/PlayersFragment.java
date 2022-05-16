@@ -61,13 +61,32 @@ public class PlayersFragment extends Fragment {
                 }
             }
         });
+
+        final PlayersListAdapter.editClickListener listener=new PlayersListAdapter.editClickListener() {
+            @Override
+            public void onItemClick(View v, Players player) {
+                Bundle bundle=new Bundle();
+                bundle.putString(getString(R.string.key_player_name),player.getPlayer_name());
+                bundle.putInt(getString(R.string.key_player_state),player.getPlayer_state());
+                bundle.putInt(getString(R.string.key_player_id),player.getPlayerID());
+                CreatePlayerFragment createPlayerFragment=new CreatePlayerFragment();
+                createPlayerFragment.setArguments(bundle);
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment prev = getActivity().getSupportFragmentManager().findFragmentByTag("ConfirmDialog");
+                if (prev == null) {
+                    ft.addToBackStack(null);
+                    createPlayerFragment.show(ft, "CreatePlayerDialog");
+                }
+            }
+        };
        mViewModel.getAllPlayers(sessionManager.getTeamId()).observe(getActivity(), new Observer<List<Players>>() {
            @Override
            public void onChanged(List<Players> players) {
                if(players.size()>0){
-                   PlayersListAdapter playersListAdapter = new PlayersListAdapter(players,getContext() );
+                   PlayersListAdapter playersListAdapter = new PlayersListAdapter(players,getContext());
                    rv_players.setLayoutManager(new LinearLayoutManager(getContext()));
                    rv_players.setAdapter(playersListAdapter);
+                   playersListAdapter.setListener(listener);
                    rv_players.setHasFixedSize(true);
                    llPlayersList.setVisibility(View.VISIBLE);
                    llNewPlayers.setVisibility(View.GONE);

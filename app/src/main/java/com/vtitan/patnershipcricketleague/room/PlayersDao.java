@@ -21,4 +21,12 @@ public interface PlayersDao {
 
     @Query("SELECT COUNT(player_name) FROM Players WHERE team_id =:teamID")
     LiveData<Integer> getPlayersCount(int teamID);
+
+    @Query("SELECT player_state FROM Players WHERE team_id =:teamID")
+    LiveData<Integer> getPlayerState(int teamID);
+
+    @Query("UPDATE Players SET player_name =:playername,player_state =:playerstate WHERE playerID =:playerid")
+    int updatePlayerDetails(String playername,int playerstate,int playerid);
+
+
 }

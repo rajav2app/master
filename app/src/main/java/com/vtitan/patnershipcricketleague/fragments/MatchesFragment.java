@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.vtitan.patnershipcricketleague.R;
+import com.vtitan.patnershipcricketleague.adapter.MatchBasedRoundListAdapter;
 import com.vtitan.patnershipcricketleague.adapter.MatchListAdapter;
 import com.vtitan.patnershipcricketleague.adapter.PointsAdapter;
 import com.vtitan.patnershipcricketleague.adapter.TeamAdapter;
@@ -46,7 +47,7 @@ public class MatchesFragment extends Fragment {
     private MatchViewModel matchViewModel;
     private List<Teams>teamList=new ArrayList<>();
     private MatchListAdapter matchListAdapter;
-
+    private List<String>roundList=new ArrayList<>();
     public static MatchesFragment newInstance() {
         MatchesFragment fragment = new MatchesFragment();
         return fragment;
@@ -66,6 +67,7 @@ public class MatchesFragment extends Fragment {
         matchViewModel = new ViewModelProvider(this).get(MatchViewModel.class);
         final TournamentViewModel tournamentViewModel = new ViewModelProvider(this).get(TournamentViewModel.class);
         sessionManager=new SessionManager(getContext());
+        addRoundList();
         tournamentViewModel.getTournamentData(sessionManager.getTournamentId()).observe(getViewLifecycleOwner(), new Observer<Tournament>() {
             @Override
             public void onChanged(Tournament tournament) {
@@ -80,7 +82,7 @@ public class MatchesFragment extends Fragment {
             @Override
             public void onChanged(List<Matches> matches) {
                 if(matches.size()>0){
-                    matchListAdapter = new MatchListAdapter(matches,getContext() );
+                  MatchListAdapter matchListAdapter = new MatchListAdapter(matches,getContext() );
                     rv_matches.setLayoutManager(new LinearLayoutManager(getContext()));
                     rv_matches.setAdapter(matchListAdapter);
                     rv_matches.setHasFixedSize(true);
@@ -166,6 +168,8 @@ public class MatchesFragment extends Fragment {
                 Matches matches=new Matches();
                 Calendar matchDate = Calendar.getInstance();
                 matchDate.setTimeInMillis(tStartdate);
+                matches.setTeam_id_home(teams.get(home).getTeamID());
+                matches.setTeam_id_away(teams.get(away).getTeamID());
                 matchDate.add(Calendar.DATE, count);
                 matchDate.set(Calendar.MILLISECONDS_IN_DAY,0);
                 matches.setMatch_no(count+1);
@@ -186,5 +190,13 @@ public class MatchesFragment extends Fragment {
             System.out.println();
         }
         return matchesList;
+    }
+
+    private void addRoundList(){
+        roundList.add("Round 1");
+        roundList.add("Round 2");
+        roundList.add("Round 3");
+        roundList.add("Round 4");
+        roundList.add("Round 5");
     }
 }

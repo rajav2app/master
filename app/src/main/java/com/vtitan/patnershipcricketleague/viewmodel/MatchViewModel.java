@@ -34,4 +34,20 @@ public class MatchViewModel extends AndroidViewModel {
     public LiveData<List<Matches>> getMatches(){
         return mRepository.getMatches();
     }
+
+    public LiveData<List<Matches>> getTeamMatches(int teamId){
+        return mRepository.getTeamMatches(teamId);
+    }
+    public int updateMatchDetails(String venue,long date,int over,int toss,int bat,int matchNo)
+    {
+        return mRepository.updateMatchDetails(venue,date,over,toss,bat,matchNo);
+    }
+
+    public LiveData<Matches>getMatchDetails(int matchNo,int tournamentId){
+        return mRepository.getMatchDetails(matchNo,tournamentId);
+    }
+
+    public void updateMatchStatus(int status,int matchNo,int tournamentId){
+        mRepository.updateMatchStatus(status,matchNo,tournamentId);
+    }
 }

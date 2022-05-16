@@ -17,7 +17,7 @@ public class TeamViewModel extends AndroidViewModel {
         super(application);
         mRepository = new TournamentRepository(application);
     }
-    public int getTeamCount(String tournamentID){
+    public LiveData<Integer> getTeamCount(String tournamentID){
         return mRepository.teamCount(tournamentID);
     }
     public long insertTeam(Teams teamModel){
@@ -29,6 +29,10 @@ public class TeamViewModel extends AndroidViewModel {
     }
     public long insertPlayers(Players players){
         return mRepository.insertPlayers(players);
+    }
+
+    public int updatePlayerdetails(String playername,int playerstate,int playerid){
+        return mRepository.updatePlayerDetails(playername,playerstate,playerid);
     }
     public LiveData<List<Players>>getAllPlayers(int teamID){
       return mRepository.getAllPlayers(teamID);
@@ -43,5 +47,15 @@ public class TeamViewModel extends AndroidViewModel {
 
     public int getTeamId(String teamName){
         return mRepository.getTeamID(teamName);
+    }
+    public LiveData<Integer> getPlayerState(int teamId){
+        return mRepository.getPlayerState(teamId);
+    }
+
+    public int updateTeamDetails(String teamName,String teamLocation,int teamId){
+        return mRepository.updateTeamDetails(teamName,teamLocation,teamId);
+    }
+    public String getTeamName(int teamId){
+        return mRepository.getTeamName(teamId);
     }
 }

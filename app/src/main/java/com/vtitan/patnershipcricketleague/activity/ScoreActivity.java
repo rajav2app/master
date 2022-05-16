@@ -1,34 +1,27 @@
 package com.vtitan.patnershipcricketleague.activity;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.material.tabs.TabLayout;
 import com.vtitan.patnershipcricketleague.R;
-import com.vtitan.patnershipcricketleague.adapter.HomeTabAdapter;
 
-public class MainActivity extends AppCompatActivity {
-
+public class ScoreActivity extends AppCompatActivity {
+    private String teamA;
+    private String teamB;
+    private String matchNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_score);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.txt_pcl));
+        toolbar.setTitle(getString(R.string.title_start_match));
         setSupportActionBar(toolbar);
-
-        int position = 0;
-        Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            position = extras.getInt("viewpager_position");
-        }
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setTitleTextColor(getResources().getColor(R.color.black));
@@ -37,18 +30,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+                overridePendingTransition(R.anim.enter,R.anim.exit);
             }
         });
-
-        final ViewPager viewPager = findViewById(R.id.ViewPager);
-        final TabLayout tabs = findViewById(R.id.tabHome);
-        HomeTabAdapter tabsPagerAdapter = new HomeTabAdapter(this,this.getSupportFragmentManager(),position);
-        viewPager.setAdapter(tabsPagerAdapter);
-        tabs.setupWithViewPager(viewPager);
-        tabsPagerAdapter.notifyDataSetChanged();
-
-
-
-
+        Intent intent=getIntent();
+        if(intent!=null){
+            teamA=intent.getStringExtra("TA");
+            teamB=intent.getStringExtra("TB");
+            matchNo=intent.getStringExtra("MNO");
+        }
     }
 }

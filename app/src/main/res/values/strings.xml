@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Patnership Cricket League</string>
-
+    <string name="txt_pcl">Patnership Cricket League</string>
     <string name="txt_welcome">Welcome to PCL</string>
     <string name="txt_new_tournment">New Tournament</string>
     <string name="txt_load_tournment">Load Tournament</string>
@@ -59,8 +59,40 @@
     <string name="txt_score">Start Score</string>
     <!-- Keys -->
     <string name="key_tid">tID</string>
-
+    <string name="key_team_name">team_name</string>
+    <string name="key_team_location">team_location</string>
+    <string name="key_team_id">team_id</string>
+    <string name="key_player_name">player_name</string>
+    <string name="key_player_state">player_state</string>
+    <string name="key_player_id">player_id</string>
     <string name="txt_team_name">Team Name</string>
+    <string name="txt_batsman">Batsman</string>
+    <string name="txt_bowler">Bowler</string>
+    <string name="txt_this_over">This Over</string>
+    <string name="txt_r">R</string>
+    <string name="txt_b">B</string>
+    <string name="txt_4s">4s</string>
+    <string name="txt_6s">6s</string>
+    <string name="txt_sr">SR</string>
+    <string name="txt_o">O</string>
+    <string name="txt_m">M</string>
+    <string name="txt_w">W</string>
+    <string name="txt_er">ER</string>
+    <string name="txt_wide">Wide</string>
+    <string name="txt_no_ball">No Ball</string>
+    <string name="txt_byes">Byes</string>
+    <string name="txt_leg_byes">Leg Byes</string>
+    <string name="txt_wicket">Wicket</string>
+    <string name="txt_r_0">0</string>
+    <string name="txt_r_1">1</string>
+    <string name="txt_r_2">2</string>
+    <string name="txt_r_3">3</string>
+    <string name="txt_r_4">4</string>
+    <string name="txt_r_5">5</string>
+    <string name="txt_r_6">6</string>
+
+
+    <string name="txt_unable_to_create_more_team">Unable to create more then 6 team.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

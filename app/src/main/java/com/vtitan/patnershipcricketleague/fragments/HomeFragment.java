@@ -127,13 +127,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        int teamCount=mteamViewModel.getTeamCount(sessionManager.getTournamentId());
-        if(teamCount<6){
-            btn_create_team.setEnabled(true);
-        }else
-        {
-            btn_create_team.setEnabled(false);
-        }
+        mteamViewModel.getTeamCount(sessionManager.getTournamentId()).observe(getActivity(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer teamCount) {
+                if(teamCount<6){
+                    btn_create_team.setEnabled(true);
+                }else
+                {
+                    btn_create_team.setEnabled(false);
+                }
+
+            }
+        });
+
+       // int teamCount=mteamViewModel.getTeamCount(sessionManager.getTournamentId());
 
         mViewModel.getMatchScheduleState().observe(getActivity(), new Observer<Integer>() {
             @Override
@@ -246,6 +253,8 @@ public class HomeFragment extends Fragment {
                 Matches matches=new Matches();
                 Calendar matchDate = Calendar.getInstance();
                 matchDate.setTimeInMillis(tStartdate);
+                matches.setTeam_id_home(teams.get(home).getTeamID());
+                matches.setTeam_id_away(teams.get(away).getTeamID());
                 matchDate.add(Calendar.DATE, count);
                 matchDate.set(Calendar.MILLISECONDS_IN_DAY,0);
                 matches.setMatch_no(count+1);
@@ -271,12 +280,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        int teamCount=mteamViewModel.getTeamCount(sessionManager.getTournamentId());
+        /*int teamCount=mteamViewModel.getTeamCount(sessionManager.getTournamentId());
         if(teamCount<6){
             btn_create_team.setEnabled(true);
         }else
         { btn_create_team.setEnabled(false);
         }
-
+*/
     }
 }

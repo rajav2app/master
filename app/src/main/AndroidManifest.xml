@@ -12,6 +12,10 @@
         android:theme="@style/Theme.PatnershipCricketLeague"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ScoreActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PatnershipCricketLeague.NoActionBar"/>
+        <activity
             android:name=".activity.MatchDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.PatnershipCricketLeague.NoActionBar" />

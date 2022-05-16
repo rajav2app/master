@@ -46,6 +46,7 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -102,6 +103,16 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+        <ImageView
+            android:id="@+id/imbEdit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top"
+            android:src="@drawable/ic_edit"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="@dimen/marigin_10dp">
+
+        </ImageView>
     </LinearLayout>
 
     <RelativeLayout

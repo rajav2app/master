@@ -2,6 +2,7 @@ package com.vtitan.patnershipcricketleague.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.vtitan.patnershipcricketleague.R;
 import com.vtitan.patnershipcricketleague.activity.MatchDetailActivity;
 import com.vtitan.patnershipcricketleague.model.Matches;
 import com.vtitan.patnershipcricketleague.model.Teams;
+import com.vtitan.patnershipcricketleague.util.BasicFunction;
 import com.vtitan.patnershipcricketleague.util.DebouncedOnClickListener;
 import com.vtitan.patnershipcricketleague.util.SessionManager;
 
@@ -32,7 +34,7 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView txtGroupName;
+        private TextView txtMatchNo;
         private TextView txtMatchType;
         private TextView txtDate;
         private TextView txtMatchStatus;
@@ -45,9 +47,11 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
         private CircleImageView img_teamA;
         private CircleImageView img_teamB;
         private LinearLayout llMatch;
+        private TextView txtTime;
+        private TextView txtRound;
         public MyViewHolder(View view) {
             super(view);
-            txtGroupName = view.findViewById(R.id.txtGroupName);
+            txtMatchNo = view.findViewById(R.id.txtMatchNo);
             txtMatchType=view.findViewById(R.id.txtMatchType);
             txtDate=view.findViewById(R.id.txtDate);
             txtMatchStatus=view.findViewById(R.id.txtMatchStatus);
@@ -60,6 +64,8 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
             img_teamA=view.findViewById(R.id.img_teamA);
             img_teamB=view.findViewById(R.id.img_teamB);
             llMatch=view.findViewById(R.id.llMatch);
+            txtTime=view.findViewById(R.id.txtTime);
+            txtRound=view.findViewById(R.id.txtRound);
         }
     }
 
@@ -91,19 +97,75 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
         holder.img_teamB.setImageDrawable(context.getDrawable(R.drawable.team_2));
         holder.txtDate.setText(formatter.format(model.getMatch_date()));
         holder.txtMatchLocation.setText(model.getMatch_venue());
-        if(model.getMatch_status()==0){
-        holder.txtMatchStatus.setText("");
-        holder.txtScoreB.setText("");
-        holder.txtScoreA.setText("");
-        holder.txtMatchResult.setText("");
-        }else if(model.getMatch_status()==1){
+        holder.txtMatchNo.setText("Match.No : "+model.getMatch_no());
+        holder.txtTime.setText(BasicFunction.longTohms(model.getMatch_date()));
+
+       if(model.getMatch_status()==1){
             holder.txtMatchStatus.setText("Live");
-        }else
+           holder.txtMatchStatus.setTextColor(Color.GREEN);
+          // holder.txtScoreA.setText();
+        }else if(model.getMatch_status()==2)
         {
             holder.txtMatchStatus.setText("Completed");
+            holder.txtMatchStatus.setTextColor(Color.RED);
             holder.txtScoreA.setText("165-5");
             holder.txtScoreB.setText("166-5");
             holder.txtMatchResult.setText(teamName[1]+"Won by 5 Wickets");
+        }else {
+           holder.txtMatchStatus.setText("");
+           holder.txtScoreB.setText("");
+           holder.txtScoreA.setText("");
+           holder.txtMatchResult.setText("");
+       }
+
+        holder.txtRound.setVisibility(View.VISIBLE);
+        holder.setIsRecyclable(false);
+        switch (model.getMatch_no()){
+            case 1:
+                holder.txtRound.setText("Round 1");
+                break;
+            case 2:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 3:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 4:
+                holder.txtRound.setText("Round 2");
+                break;
+            case 5:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 6:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 7:
+                holder.txtRound.setText("Round 3");
+                break;
+            case 8:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 9:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 10:
+                holder.txtRound.setText("Round 4");
+                break;
+            case 11:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 12:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 13:
+                holder.txtRound.setText("Round 5");
+                break;
+            case 14:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
+            case 15:
+                holder.txtRound.setVisibility(View.GONE);
+                break;
         }
 
         holder.llMatch.setOnClickListener(new DebouncedOnClickListener(DebouncedOnClickListener.CLICK_INT) {

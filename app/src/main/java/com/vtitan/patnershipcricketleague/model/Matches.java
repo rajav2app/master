@@ -14,6 +14,12 @@ public class Matches {
     @ColumnInfo(name = "t_ID")
     private String t_ID;
 
+    @ColumnInfo(name = "team_id_home")
+    private int team_id_home;
+
+    @ColumnInfo(name = "team_id_away")
+    private int team_id_away;
+
     @ColumnInfo(name = "match_no")
     private int match_no;
 
@@ -169,5 +175,21 @@ public class Matches {
 
     public void setMatch_total_wickets(int match_total_wickets) {
         this.match_total_wickets = match_total_wickets;
+    }
+
+    public int getTeam_id_home() {
+        return team_id_home;
+    }
+
+    public void setTeam_id_home(int team_id_home) {
+        this.team_id_home = team_id_home;
+    }
+
+    public int getTeam_id_away() {
+        return team_id_away;
+    }
+
+    public void setTeam_id_away(int team_id_away) {
+        this.team_id_away = team_id_away;
     }
 }
