@@ -22,6 +22,9 @@ public class TournamentViewModel extends AndroidViewModel {
     public long insertTournament(Tournament tournament) {
      return  mRepository.insertTournament(tournament);
     }
+    public void updateTournament(String tName,String tlocation,long start_date,long end_date,int tid){
+      mRepository.updateTournament(tName,tlocation,start_date,end_date,tid);
+    }
 
     public LiveData<List<Tournament>>getAllTournament()
     {
@@ -38,4 +41,15 @@ public class TournamentViewModel extends AndroidViewModel {
     public LiveData<Integer>getMatchScheduleState(){
         return mRepository.getMatchesScheduleState();
     }
+
+    public Tournament getTournamentDetails(int tournamentId){
+        return mRepository.getTournamentDetails(tournamentId);
+    }
+    public void deleteTournament(int tid){
+        mRepository.deleteTournament(tid);
+        mRepository.deleteTournamentTeams(tid);
+       // mRepository.deleteScore(tid);
+        mRepository.deleteTorunamentMatches(tid);
+    }
+
 }

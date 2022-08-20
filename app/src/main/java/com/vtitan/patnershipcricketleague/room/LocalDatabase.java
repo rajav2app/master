@@ -15,7 +15,7 @@ import com.vtitan.patnershipcricketleague.model.Players;
 import com.vtitan.patnershipcricketleague.model.Teams;
 import com.vtitan.patnershipcricketleague.model.Tournament;
 
-@Database(entities = {Tournament.class, Teams.class, Matches.class, Players.class},version = 4, exportSchema = false)
+@Database(entities = {Tournament.class, Teams.class, Matches.class, Players.class},version = 1, exportSchema = false)
 public abstract class LocalDatabase extends RoomDatabase {
     private static final String DB_NAME = "pcl.db";
     private static LocalDatabase INSTANCE;
@@ -38,6 +38,7 @@ public abstract class LocalDatabase extends RoomDatabase {
     public abstract TeamDao TeamDao();
     public abstract PlayersDao PlayersDao();
     public abstract MatchesDao MatchesDao();
+    public abstract ScoreDao ScoreDao();
 
     @NonNull
     @Override

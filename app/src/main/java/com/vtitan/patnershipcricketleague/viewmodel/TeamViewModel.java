@@ -37,6 +37,12 @@ public class TeamViewModel extends AndroidViewModel {
     public LiveData<List<Players>>getAllPlayers(int teamID){
       return mRepository.getAllPlayers(teamID);
     }
+    public LiveData<List<Players>>getBattingTeamPlayers(int teamID){
+        return mRepository.getBattingTeamPlayers(teamID);
+    }
+    public LiveData<List<Players>>getBowlingTeamPlayers(int teamID){
+        return mRepository.getBowlingTeamPlayers(teamID);
+    }
 
     public LiveData<List<Teams>>getAllTeams(String tID){
      return mRepository.getAllTeams(tID);
@@ -51,6 +57,9 @@ public class TeamViewModel extends AndroidViewModel {
     public LiveData<Integer> getPlayerState(int teamId){
         return mRepository.getPlayerState(teamId);
     }
+    public Integer getPlayCount(int TeamID){
+        return mRepository.getPlayerCount(TeamID);
+    }
 
     public int updateTeamDetails(String teamName,String teamLocation,int teamId){
         return mRepository.updateTeamDetails(teamName,teamLocation,teamId);
@@ -58,4 +67,8 @@ public class TeamViewModel extends AndroidViewModel {
     public String getTeamName(int teamId){
         return mRepository.getTeamName(teamId);
     }
+    public List<Players>getBTPlayers(int teamId){
+        return mRepository.getBTPlayers(teamId);
+    }
+
 }

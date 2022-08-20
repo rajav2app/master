@@ -28,74 +28,69 @@
             android:padding="5dp"/>
 
         <TextView
-            android:id="@+id/txtMatches"
+            android:id="@+id/txtR1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="2"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="13sp"
-            android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
         <TextView
-            android:id="@+id/txtWon"
+            android:id="@+id/txtR2"
             android:layout_width="0dp"
             android:layout_weight="0.25"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:layout_gravity="start"
-            android:padding="5dp"/>
-        <TextView
-            android:id="@+id/txtLoss"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:layout_gravity="start"
-            android:padding="5dp"/>
-        <TextView
-            android:id="@+id/txtTie"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="0"
             android:textColor="@color/black"
             android:textSize="13sp"
-            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:padding="5dp"/>
+        <TextView
+            android:id="@+id/txtR3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:padding="5dp"/>
+        <TextView
+            android:id="@+id/txtR4"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:padding="5dp"/>
+        <TextView
+            android:id="@+id/txtR5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="13sp"
             android:layout_gravity="start"
             android:padding="5dp"/>
         <TextView
             android:id="@+id/txtPoints"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:layout_gravity="start"
-            android:padding="5dp"/>
-        <TextView
-            android:id="@+id/txtNRR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:text="+0.23"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="13sp"
-            android:textStyle="bold"
             android:layout_gravity="start"
             android:padding="5dp"/>
 

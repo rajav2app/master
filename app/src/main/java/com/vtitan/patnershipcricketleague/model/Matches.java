@@ -2,6 +2,7 @@ package com.vtitan.patnershipcricketleague.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -19,6 +20,12 @@ public class Matches {
 
     @ColumnInfo(name = "team_id_away")
     private int team_id_away;
+
+    @ColumnInfo(name = "team_name_away")
+    private String team_name_away;
+
+    @ColumnInfo(name = "team_name_home")
+    private String team_name_home;
 
     @ColumnInfo(name = "match_no")
     private int match_no;
@@ -61,6 +68,43 @@ public class Matches {
     @ColumnInfo(name = "match_total_wickets")
     private int match_total_wickets;
 
+    @ColumnInfo(name = "sixes")
+    private int sixes;
+
+    @ColumnInfo(name = "fours")
+    private int fours;
+
+    @ColumnInfo(name = "catches")
+    private int catches;
+
+    @ColumnInfo(name = "fifties")
+    private int fifties;
+
+    @ColumnInfo(name = "hundreds")
+    private int hundreds;
+
+    @ColumnInfo(name = "innings")
+    private int innings;
+
+    @ColumnInfo(name = "player_id")
+    private int player_id;
+
+    @Embedded(prefix = "over_")
+    private Overs overs;
+
+    @ColumnInfo(name = "extra")
+    private int extra;
+
+    @ColumnInfo(name = "totalrun")
+    private int totalrun;
+
+    public int getTotalrun() {
+        return totalrun;
+    }
+
+    public void setTotalrun(int totalrun) {
+        this.totalrun = totalrun;
+    }
 
     public int getMatchID() {
         return matchID;
@@ -191,5 +235,93 @@ public class Matches {
 
     public void setTeam_id_away(int team_id_away) {
         this.team_id_away = team_id_away;
+    }
+
+    public int getSixes() {
+        return sixes;
+    }
+
+    public void setSixes(int sixes) {
+        this.sixes = sixes;
+    }
+
+    public int getFours() {
+        return fours;
+    }
+
+    public void setFours(int fours) {
+        this.fours = fours;
+    }
+
+    public int getCatches() {
+        return catches;
+    }
+
+    public void setCatches(int catches) {
+        this.catches = catches;
+    }
+
+    public int getFifties() {
+        return fifties;
+    }
+
+    public void setFifties(int fifties) {
+        this.fifties = fifties;
+    }
+
+    public int getHundreds() {
+        return hundreds;
+    }
+
+    public void setHundreds(int hundreds) {
+        this.hundreds = hundreds;
+    }
+
+    public int getInnings() {
+        return innings;
+    }
+
+    public void setInnings(int innings) {
+        this.innings = innings;
+    }
+
+    public Overs getOvers() {
+        return overs;
+    }
+
+    public void setOvers(Overs overs) {
+        this.overs = overs;
+    }
+
+    public int getPlayer_id() {
+        return player_id;
+    }
+
+    public void setPlayer_id(int player_id) {
+        this.player_id = player_id;
+    }
+
+    public int getExtra() {
+        return extra;
+    }
+
+    public void setExtra(int extra) {
+        this.extra = extra;
+    }
+
+    public String getTeam_name_away() {
+        return team_name_away;
+    }
+
+    public void setTeam_name_away(String team_name_away) {
+        this.team_name_away = team_name_away;
+    }
+
+    public String getTeam_name_home() {
+        return team_name_home;
+    }
+
+    public void setTeam_name_home(String team_name_home) {
+        this.team_name_home = team_name_home;
     }
 }

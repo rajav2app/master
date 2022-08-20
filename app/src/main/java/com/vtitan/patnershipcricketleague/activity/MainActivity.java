@@ -46,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(tabsPagerAdapter);
         tabs.setupWithViewPager(viewPager);
         tabsPagerAdapter.notifyDataSetChanged();
-
-
-
-
     }
+
+
 }

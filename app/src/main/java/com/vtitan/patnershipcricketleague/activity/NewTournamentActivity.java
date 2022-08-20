@@ -32,6 +32,12 @@ public class NewTournamentActivity extends AppCompatActivity {
     private TextInputEditText etTEndDate;
     final Calendar startCalendar= Calendar.getInstance();
     final Calendar endCalendar= Calendar.getInstance();
+    private android.icu.text.SimpleDateFormat formatter = new android.icu.text.SimpleDateFormat("dd MMM yyyy");
+    private int t_id;
+    private String t_name;
+    private String t_location;
+    private long t_start_date;
+    private long t_end_date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,16 +57,32 @@ public class NewTournamentActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        final TournamentViewModel mViewModel = new ViewModelProvider(this).get(TournamentViewModel.class);
-
         final EditText etTName = findViewById(R.id.etTName);
         final EditText etTLocation = findViewById(R.id.etTLocation);
         etTStartDate = findViewById(R.id.etStartDate);
         etTEndDate = findViewById(R.id.etEndDate);
+        final Button btn_CreateTournament = findViewById(R.id.btn_CreateTournament);
+        Intent intent=getIntent();
+        if(intent!=null){
+        t_id=intent.getIntExtra("t_id",0);
+        t_name=intent.getStringExtra("t_name");
+        t_location=intent.getStringExtra("t_location");
+        t_start_date=intent.getLongExtra("t_start_date",0);
+        t_end_date=intent.getLongExtra("t_end_date",0);
+        if(t_id!=0) {
+            etTName.setText(t_name);
+            etTLocation.setText(t_location);
+            etTStartDate.setText(formatter.format(t_start_date));
+            etTEndDate.setText(formatter.format(t_end_date));
+            btn_CreateTournament.setText("Update");
+        }
+        }
+
+        final TournamentViewModel mViewModel = new ViewModelProvider(this).get(TournamentViewModel.class);
+
+
         final TextInputLayout tilStartDate=findViewById(R.id.tilStartDate);
         final TextInputLayout tilEndDate=findViewById(R.id.tilEndDate);
-        final Button btn_CreateTournament = findViewById(R.id.btn_CreateTournament);
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -123,11 +145,22 @@ public class NewTournamentActivity extends AppCompatActivity {
                     } else {
                         tournament.setTournament_end_time(endCalendar.getTimeInMillis());
                     }
-                  long result=mViewModel.insertTournament(tournament);
+                    long result=-1;
+                    if(t_id!=0){
+                        mViewModel.updateTournament(tournament.getTournament_name(),tournament.getTournament_location(),tournament.getTournament_start_time(),tournament.getTournament_end_time(),t_id);
+                        result=-2;
+                    }else{
+                        result=mViewModel.insertTournament(tournament);
+                    }
                     if(result==-1){
                         Toast.makeText(NewTournamentActivity.this, "Tournament adition failed.", Toast.LENGTH_SHORT).show();
-                    }else
+                    }else if(result == -2)
                     {
+                        Toast.makeText(NewTournamentActivity.this, "Tournament updated successfully.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(NewTournamentActivity.this,TournamentSelectionActivity.class));
+                        overridePendingTransition(R.anim.enter,R.anim.exit);
+                        finish();
+                    }else{
                         Toast.makeText(NewTournamentActivity.this, "Tournament added successfully.", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(NewTournamentActivity.this,TournamentSelectionActivity.class));
                         overridePendingTransition(R.anim.enter,R.anim.exit);

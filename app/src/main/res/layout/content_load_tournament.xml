@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,51 +13,103 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:src="@drawable/banner1"
             android:fitsSystemWindows="true"/>
-
-        <TextView
-            android:id="@+id/tv_location"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="M A Chidambaram Stadium"
-            android:gravity="start"
-            android:textSize="14sp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"/>
+            android:background="@color/card_background">
 
-        <TextView
-            android:id="@+id/tv_tournament_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Partnership Cricket Leaugue"
-            android:gravity="start"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/marigin_10dp"
-            android:layout_marginStart="10dp"/>
+            <RelativeLayout
+                android:id="@+id/llEdit"
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="vickey"
-            android:gravity="start"
-            android:textSize="14sp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"/>
+                <ImageButton
+                    android:id="@+id/img_btn_edit"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/img_btn_delete"
+                    android:background="@color/card_background"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_edit"
+                    app:tint="@color/black" />
 
-        <TextView
-            android:id="@+id/tv_tournament_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="01 Apr 2022 - 15 Mar 2022"
-            android:gravity="start"
-            android:textSize="14sp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"/>
+                <ImageButton
+                    android:id="@+id/img_btn_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/card_background"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_delete_pat"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="start"
+                    android:text="M A Chidambaram Stadium"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_tournament_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/marigin_10dp"
+                    android:gravity="start"
+                    android:text="Partnership Cricket Leaugue"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="start"
+                    android:text="vickey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_tournament_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="start"
+                    android:text="01 Apr 2022 - 15 Mar 2022"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

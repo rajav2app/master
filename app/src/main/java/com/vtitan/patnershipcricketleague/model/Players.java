@@ -2,6 +2,7 @@ package com.vtitan.patnershipcricketleague.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -50,11 +51,14 @@ public class Players {
     @ColumnInfo(name = "innings")
     private int innings;
 
-    @ColumnInfo(name = "overs")
-    private int overs;
-
     @ColumnInfo(name = "match_no")
     private int match_no;
+
+    @Embedded(prefix = "over_")
+    private Overs overs;
+
+    @ColumnInfo(name = "totalrun")
+    private int totalrun;
 
 
     public int getPlayerID() {
@@ -170,13 +174,6 @@ public class Players {
         this.player_state = player_state;
     }
 
-    public int getOvers() {
-        return overs;
-    }
-
-    public void setOvers(int overs) {
-        this.overs = overs;
-    }
 
     public int getMatch_no() {
         return match_no;
@@ -184,5 +181,21 @@ public class Players {
 
     public void setMatch_no(int match_no) {
         this.match_no = match_no;
+    }
+
+    public Overs getOvers() {
+        return overs;
+    }
+
+    public void setOvers(Overs overs) {
+        this.overs = overs;
+    }
+
+    public int getTotalrun() {
+        return totalrun;
+    }
+
+    public void setTotalrun(int totalrun) {
+        this.totalrun = totalrun;
     }
 }

@@ -30,5 +30,12 @@ public interface TournamentDao {
     @Query("SELECT match_schedule_state FROM Tournament")
     abstract LiveData<Integer> getMatchScheduleState();
 
+    @Query("SELECT * FROM Tournament WHERE tournamentID =:tid")
+    abstract Tournament getTournamentDetails(int tid);
 
+    @Query("UPDATE Tournament SET tournament_name = :tName,tournament_location =:tLocation,tournament_start_time =:start_date,tournament_end_time =:end_date WHERE tournamentID =:tournamentID")
+    abstract void updateTournament(String tName,String tLocation,long start_date,long end_date,int tournamentID);
+
+    @Query("DELETE FROM Tournament WHERE tournamentID = :id ")
+    abstract void delete(int id);
 }

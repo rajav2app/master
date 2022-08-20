@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vtitan.patnershipcricketleague.R;
 import com.vtitan.patnershipcricketleague.activity.MatchDetailActivity;
+import com.vtitan.patnershipcricketleague.activity.ScoreActivity;
 import com.vtitan.patnershipcricketleague.model.Matches;
 import com.vtitan.patnershipcricketleague.model.Teams;
 import com.vtitan.patnershipcricketleague.util.BasicFunction;
@@ -91,8 +92,8 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
 
         String teamName[]=model.getMatch_details().split(":");
 
-        holder.txtTeamNameA.setText(teamName[0]);
-        holder.txtTeamNameB.setText(teamName[1]);
+        holder.txtTeamNameA.setText(model.getTeam_name_home());
+        holder.txtTeamNameB.setText(model.getTeam_name_away());
         holder.img_teamA.setImageDrawable(context.getDrawable(R.drawable.team_1));;
         holder.img_teamB.setImageDrawable(context.getDrawable(R.drawable.team_2));
         holder.txtDate.setText(formatter.format(model.getMatch_date()));
@@ -171,11 +172,19 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.MyVi
         holder.llMatch.setOnClickListener(new DebouncedOnClickListener(DebouncedOnClickListener.CLICK_INT) {
             @Override
             public void onDebouncedClick(View v) {
-                Intent intent=new Intent(context, MatchDetailActivity.class);
-                intent.putExtra("TA",teamName[0]);
-                intent.putExtra("TB",teamName[1]);
-                intent.putExtra("MNO",model.getMatch_no());
-                context.startActivity(intent);
+                if(model.getMatch_status()==1){
+                    Intent intent=new Intent(context, ScoreActivity.class);
+                    intent.putExtra("TA",model.getTeam_name_home());
+                    intent.putExtra("TB",model.getTeam_name_away());
+                    intent.putExtra("MNO",model.getMatch_no());
+                    context.startActivity(intent);
+                }else {
+                    Intent intent = new Intent(context, MatchDetailActivity.class);
+                    intent.putExtra("TA", model.getTeam_name_home());
+                    intent.putExtra("TB", model.getTeam_name_away());
+                    intent.putExtra("MNO", model.getMatch_no());
+                    context.startActivity(intent);
+                }
 
             }
         });

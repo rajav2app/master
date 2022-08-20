@@ -31,22 +31,22 @@ public class PointsAdapter extends RecyclerView.Adapter<PointsAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtTeamName;
-        private TextView txtMatches;
-        private TextView txtWon;
-        private TextView txtLoss;
-        private TextView txtTie;
+        private TextView txtR1;
+        private TextView txtR2;
+        private TextView txtR3;
+        private TextView txtR4;
         private TextView txtPoints;
-        private TextView txtNRR;
+        private TextView txtR5;
         private CircleImageView img_team;
         public MyViewHolder(View view) {
             super(view);
             txtTeamName = view.findViewById(R.id.txtTeamName);
-            txtMatches=view.findViewById(R.id.txtMatches);
-            txtWon=view.findViewById(R.id.txtWon);
-            txtLoss=view.findViewById(R.id.txtLoss);
-            txtTie=view.findViewById(R.id.txtTie);
+            txtR1=view.findViewById(R.id.txtR1);
+            txtR2=view.findViewById(R.id.txtR2);
+            txtR3=view.findViewById(R.id.txtR3);
+            txtR4=view.findViewById(R.id.txtR4);
+            txtR5=view.findViewById(R.id.txtR5);
             txtPoints=view.findViewById(R.id.txtPoints);
-            txtNRR=view.findViewById(R.id.txtNRR);
             img_team=view.findViewById(R.id.img_team);
         }
     }

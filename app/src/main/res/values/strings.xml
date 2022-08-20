@@ -81,8 +81,8 @@
     <string name="txt_wide">Wide</string>
     <string name="txt_no_ball">No Ball</string>
     <string name="txt_byes">Byes</string>
-    <string name="txt_leg_byes">Leg Byes</string>
-    <string name="txt_wicket">Wicket</string>
+    <string name="txt_leg_byes">LB</string>
+    <string name="txt_wicket">W</string>
     <string name="txt_r_0">0</string>
     <string name="txt_r_1">1</string>
     <string name="txt_r_2">2</string>
@@ -90,9 +90,10 @@
     <string name="txt_r_4">4</string>
     <string name="txt_r_5">5</string>
     <string name="txt_r_6">6</string>
-
-
     <string name="txt_unable_to_create_more_team">Unable to create more then 6 team.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="select_sticker">Select Stricker Details</string>
+    <string name="hint_stricker">Enter the stricker name</string>
+    <string name="hint_non_stricker">Enter the non-stricker name</string>
+    <string name="hint_bowller">Enter the bowler name</string>
 </resources>

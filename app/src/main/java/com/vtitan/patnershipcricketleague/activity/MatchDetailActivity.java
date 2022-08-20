@@ -172,29 +172,34 @@ public class MatchDetailActivity extends AppCompatActivity {
             @Override
             public void onDebouncedClick(View v) {
 
-                if(etVenue.getText().toString().trim().isEmpty()){
-                    etVenue.setError("Please enter the venue details.");
-                }else if(edit_sch_time.getText().toString().trim().isEmpty()){
-                    edit_sch_time.setError("Please select the match date and time");
-                }else if(rg_won_toss.getCheckedRadioButtonId() == -1){
-                    rb_teamB.setError("Please select the who one the toss.");
-                }else if(rg_decided_to_bat.getCheckedRadioButtonId()==-1){
-                    rb_bowl.setError("Please select the batting or bowling");
-                }else if(rg_over.getCheckedRadioButtonId()==-1){
-                    rb_over_six.setError("Please select the over");
-                }else
-                {
-                 int result= matchViewModel.updateMatchDetails(etVenue.getText().toString().trim(),date.getTimeInMillis(),over,toss,bat,matchNo);
-                 if(result>0){
-                     matchViewModel.updateMatchStatus(1,matchNo,Integer.parseInt(sessionManager.getTournamentId()));
-                     Intent intent=new Intent(MatchDetailActivity.this, ScoreActivity.class);
-                     intent.putExtra("TA",teamA);
-                     intent.putExtra("TB",teamB);
-                     intent.putExtra("MNO",matchNo);
-                     startActivity(intent);
-                 }
-                }
+                int playerCountA = mViewModel.getPlayCount(mViewModel.getTeamId(teamA));
+                int playerCountB = mViewModel.getPlayCount(mViewModel.getTeamId(teamB));
+                if (playerCountA == 2 && playerCountB == 2) {
+                    if (etVenue.getText().toString().trim().isEmpty()) {
+                        etVenue.setError("Please enter the venue details.");
+                    } else if (edit_sch_time.getText().toString().trim().isEmpty()) {
+                        edit_sch_time.setError("Please select the match date and time");
+                    } else if (rg_won_toss.getCheckedRadioButtonId() == -1) {
+                        rb_teamB.setError("Please select the who one the toss.");
+                    } else if (rg_decided_to_bat.getCheckedRadioButtonId() == -1) {
+                        rb_bowl.setError("Please select the batting or bowling");
+                    } else if (rg_over.getCheckedRadioButtonId() == -1) {
+                        rb_over_six.setError("Please select the over");
+                    } else {
+                        int result = matchViewModel.updateMatchDetails(etVenue.getText().toString().trim(), date.getTimeInMillis(), over, toss, bat, matchNo);
+                        if (result > 0) {
+                            matchViewModel.updateMatchStatus(1, matchNo, Integer.parseInt(sessionManager.getTournamentId()));
+                            Intent intent = new Intent(MatchDetailActivity.this, ScoreActivity.class);
+                            intent.putExtra("TA", teamA);
+                            intent.putExtra("TB", teamB);
+                            intent.putExtra("MNO", matchNo);
+                            startActivity(intent);
+                        }
+                    }
 
+                }else{
+                    Toast.makeText(MatchDetailActivity.this, "Please create players and start scoring.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

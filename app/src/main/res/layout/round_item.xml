@@ -32,60 +32,68 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="M"
+            android:text="R1"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="W"
+            android:text="R2"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="L"
+            android:text="R3"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="T"
+            android:text="R4"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="P"
+            android:text="R5"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:text="NRR"
+            android:text="Points"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_gravity="start"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

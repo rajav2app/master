@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,6 +110,32 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), NewTournamentActivity.class));
+            }
+        });
+
+        final ImageButton img_btn_edit= rootView.findViewById(R.id.img_btn_edit);
+        img_btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tournament tournamentdetails=  mViewModel.getTournamentDetails(Integer.parseInt(sessionManager.getTournamentId()));
+               if(tournamentdetails!=null) {
+                   Intent intent = new Intent(getContext(), NewTournamentActivity.class);
+                   intent.putExtra("t_id", tournamentdetails.getTournamentID());
+                   intent.putExtra("t_name", tournamentdetails.getTournament_name());
+                   intent.putExtra("t_location", tournamentdetails.getTournament_location());
+                   intent.putExtra("t_start_date", tournamentdetails.getTournament_start_time());
+                   intent.putExtra("t_end_date", tournamentdetails.getTournament_end_time());
+                   getContext().startActivity(intent);
+               }
+
+            }
+        });
+
+        final ImageButton img_btn_delete= rootView.findViewById(R.id.img_btn_delete);
+        img_btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewModel.deleteTournament(Integer.parseInt(sessionManager.getTournamentId()));
             }
         });
 
@@ -264,6 +291,8 @@ public class HomeFragment extends Fragment {
                 matches.setRound("Round " + round);
                 matches.setMatch_status(0);
                 matches.setMatch_details((teams.get(home ).getTeam_name()+":"+(teams.get(away )).getTeam_name()));
+                matches.setTeam_name_home(teams.get(home ).getTeam_name());
+                matches.setTeam_name_away((teams.get(away )).getTeam_name());
                 matchesList.add(matches);
                 count++;
             }

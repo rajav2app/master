@@ -179,6 +179,8 @@ public class MatchesFragment extends Fragment {
                 matches.setRound("Round " + round);
                 matches.setMatch_status(0);
                 matches.setMatch_details((teams.get(home ).getTeam_name()+":"+(teams.get(away )).getTeam_name()));
+                matches.setTeam_name_home(teams.get(home ).getTeam_name());
+                matches.setTeam_name_away((teams.get(away )).getTeam_name());
                 matchesList.add(matches);
                 count++;
             }

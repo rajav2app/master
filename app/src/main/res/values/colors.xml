@@ -13,4 +13,6 @@
 
     <color name="tab_un_selected_text_color">#1B5B87</color>
     <color name="bg_color">#C8CBCE</color>
+
+    <color name="card_background">#FFFFFF</color>
 </resources>

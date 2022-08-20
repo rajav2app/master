@@ -20,6 +20,7 @@ import java.util.List;
 public class MatchBasedRoundListAdapter extends RecyclerView.Adapter<MatchBasedRoundListAdapter.MyViewHolder> {
     private Context context;
     private List<Matches> MatchesList;
+    private List<Teams> teamsList;
     private List<String >roundList;
     private SessionManager sessionManager;
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -33,9 +34,10 @@ public class MatchBasedRoundListAdapter extends RecyclerView.Adapter<MatchBasedR
         }
     }
 
-    public MatchBasedRoundListAdapter(List<String>roundList, List<Matches> matchesList,Context context) {
+    public MatchBasedRoundListAdapter(List<String>roundList, List<Matches> matchesList,List<Teams>teamsList,Context context) {
         this.MatchesList = matchesList;
         this.roundList=roundList;
+        this.teamsList=teamsList;
         this.context = context;
     }
 
@@ -53,15 +55,15 @@ public class MatchBasedRoundListAdapter extends RecyclerView.Adapter<MatchBasedR
     public void onBindViewHolder(@NonNull MatchBasedRoundListAdapter.MyViewHolder holder, int position) {
         holder.txtRound.setText(roundList.get(position));
         if(position==1) {
-            MatchListAdapter matchListAdapter = new MatchListAdapter(MatchesList, context);
+           MatchListAdapter matchListAdapter = new MatchListAdapter(MatchesList, context);
             holder.rv_match_list.setLayoutManager(new LinearLayoutManager(context));
             holder.rv_match_list.setAdapter(matchListAdapter);
             holder.rv_match_list.setHasFixedSize(true);
-        }
-       /* PointsAdapter pointsAdapter = new PointsAdapter(teamsList,context );
-        holder.rv_points.setLayoutManager(new LinearLayoutManager(context));
-        holder.rv_points.setAdapter(pointsAdapter);
-        holder.rv_points.setHasFixedSize(true);*/
+       }
+      /*PointsAdapter pointsAdapter = new PointsAdapter(teamsList,context );
+        holder.rv_match_list.setLayoutManager(new LinearLayoutManager(context));
+        holder.rv_match_list.setAdapter(pointsAdapter);
+        holder.rv_match_list.setHasFixedSize(true);*/
     }
 
     @Override

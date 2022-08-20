@@ -19,6 +19,7 @@ import com.vtitan.patnershipcricketleague.R;
 import com.vtitan.patnershipcricketleague.model.Teams;
 import com.vtitan.patnershipcricketleague.util.DebouncedOnClickListener;
 import com.vtitan.patnershipcricketleague.util.SessionManager;
+import com.vtitan.patnershipcricketleague.viewmodel.MatchViewModel;
 import com.vtitan.patnershipcricketleague.viewmodel.TeamViewModel;
 
 public class CreateNewTeamFragment extends DialogFragment {
@@ -28,6 +29,7 @@ public class CreateNewTeamFragment extends DialogFragment {
     }
     private int teamCount=0;
     private int team_id;
+    private String teamName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,10 +42,11 @@ public class CreateNewTeamFragment extends DialogFragment {
        final EditText etTeamName=rootView.findViewById(R.id.etTeamName);
        final EditText etLocation=rootView.findViewById(R.id.etLocation);
        final TeamViewModel mViewModel = new ViewModelProvider(this).get(TeamViewModel.class);
+        final MatchViewModel matchViewModel = new ViewModelProvider(this).get(MatchViewModel.class);
         SessionManager sessionManager=new SessionManager(getContext());
        final Button btn_CreateTeam=rootView.findViewById(R.id.btn_CreateTeam);
        if(bundle!=null){
-            String teamName=bundle.getString(getString(R.string.key_team_name));
+            teamName=bundle.getString(getString(R.string.key_team_name));
             String teamLocation=bundle.getString(getString(R.string.key_team_location));
             team_id=bundle.getInt(getString(R.string.key_team_id));
             etTeamName.setText(teamName);
@@ -85,6 +88,13 @@ public class CreateNewTeamFragment extends DialogFragment {
                     else
                     {
                         int res = mViewModel.updateTeamDetails(etTeamName.getText().toString().trim(),etLocation.getText().toString().trim(),team_id);
+                        if(teamName!=null){
+                            matchViewModel.updateawayTeamDetails(etTeamName.getText().toString().trim(),teamName);
+                            matchViewModel.updateMatchDetails(etTeamName.getText().toString().trim(),teamName);
+
+                        }
+
+
                         if (res <0) {
                             Toast.makeText(getContext(), "Team details updation failed", Toast.LENGTH_SHORT).show();
                             dismiss();

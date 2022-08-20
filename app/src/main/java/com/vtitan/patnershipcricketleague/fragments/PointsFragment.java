@@ -56,12 +56,17 @@ public class PointsFragment extends Fragment {
             public void onChanged(List<Teams> teams) {
                 if(teams.size()>0){
                     teamList=teams;
+                    PointsAdapter pointsAdapter = new PointsAdapter(teamList,getContext() );
+                    rv_rounds.setLayoutManager(new LinearLayoutManager(getContext()));
+                    rv_rounds.setAdapter(pointsAdapter);
+                    rv_rounds.setHasFixedSize(true);
                 }
 
             }
         });
 
-        matchViewModel.getMatches().observe(getActivity(), new Observer<List<Matches>>() {
+
+     matchViewModel.getMatches().observe(getActivity(), new Observer<List<Matches>>() {
             @Override
             public void onChanged(List<Matches> matches) {
                 if(matches.size()>0){

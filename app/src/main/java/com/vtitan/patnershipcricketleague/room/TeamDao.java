@@ -34,6 +34,8 @@ public interface TeamDao {
     String getTeamName(int teamId);
 
 
+    @Query("DELETE FROM Teams WHERE t_ID = :id ")
+    abstract void delete(int id);
 
 
 
